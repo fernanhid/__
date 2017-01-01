@@ -147,23 +147,23 @@ def home():
 
 		lat, lng = call_api(address, town)
 
-		x = pd.Series(np.zeros(28))
-		x.iloc[24] = int(bathrooms)
-		x.iloc[25] = int(bedrooms)
-		x.iloc[26] = if_studio
-		x.iloc[27] = sqft
+		x = pd.Series(np.zeros(56))
+		x.iloc[52] = int(bathrooms)
+		x.iloc[53] = int(bedrooms)
+		x.iloc[54] = if_studio
+		x.iloc[55] = sqft
 		x.iloc[town_types_dict[town]] = 1
 
-		x.iloc[14] = ac
-		x.iloc[15] = cable
-		x.iloc[16] = deck
-		x.iloc[17] = dishw
-		x.iloc[18] = wifi
-		x.iloc[19] = laundry_f
-		x.iloc[20] = microw
-		x.iloc[21] = if_pets
-		x.iloc[22] = fridge
-		x.iloc[23] = wash_dry_unit
+		x.iloc[42] = ac
+		x.iloc[43] = cable
+		x.iloc[44] = deck
+		x.iloc[45] = dishw
+		x.iloc[46] = wifi
+		x.iloc[47] = laundry_f
+		x.iloc[48] = microw
+		x.iloc[49] = if_pets
+		x.iloc[50] = fridge
+		x.iloc[51] = wash_dry_unit
 
 		amenities_list = ['Air Conditioning','Cable Ready','Deck','Dishwasher',
 						'High Speed Internet Access','Laundry Facility','Microwave','Pets OK',
