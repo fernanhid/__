@@ -1,0 +1,118 @@
+
+<style>
+#map-canvas {
+ width: 70%;
+ height: 500px;
+ float: left;
+ }
+#prediction_info {
+ float: right;
+ width: 25%;}
+
+ #form {
+ float: bottom;
+ width: 25%;}
+</style>
+
+{{test_map.js}}
+
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}House{% endblock %}
+
+{% block page_content %}
+
+<!-- 1 -->
+<div class="row">
+
+<div class="col-md-8">     
+        {{test_map.html}}
+</div>
+
+
+<body>
+
+     <div class=".col-md-4" style="padding-top:130px;">
+     <div class = 'text-center'>
+       <h1>Predicted Price: </h1>
+       <h2><i>$ {{prediction}}</i></h2><br><br>
+       <font size="3"> <i>For a <u>{{sqft}}</u> sqft aparment in <u>{{town}}</u> with <br>
+       <u>{{bedrooms}} bedroom(s)</u> and <u>{{bathrooms}} bathroom(s)</u>.</i></font>
+       
+       </div>
+</div>
+</div>
+
+
+
+
+<div class = 'row' style="padding-top:40px;">
+
+
+
+<form method="post" role="form">
+ {{ form.hidden_tag() }}
+  {{ wtf.form_errors(form, hiddens="only") }}
+
+<div class = 'row'>
+<div> {{ wtf.form_field(form.address)}}</div>
+<div> {{ wtf.form_field(form.town)}} </div>
+<div> {{ wtf.form_field(form.sqft)}} </div>
+<div> {{ wtf.form_field(form.bedrooms)}} </div>
+<div> {{ wtf.form_field(form.bathrooms)}} </div>
+
+<div style= 'margin-top: 5em'>
+<div class = 'text-center'>
+<h1>
+Amenities <br><br>
+</h1>
+</div>
+
+<div class = 'row'>
+<font size="3">
+<b>
+<div class="col-md-4"> 
+<p style="margin-left:5em">
+Air Conditioner: {{form.ac}}<br><br>
+TV Cable: {{form.cable}}<br><br>
+Deck: {{form.deck}}<br><br>
+Dishwasher: {{form.dishw}}<br><br>
+</p>
+
+</div>
+
+<div class="col-md-4">
+<p style="margin-left:5em">
+Wifi Internet: {{form.wifi}}<br><br>
+Laundry Facility: {{form.laundry_f}}<br><br>
+Microwave: {{form.microw}}<br><br>
+</p>
+</div>
+
+
+
+<div class="col-md-4">
+<p style="margin-left:5em">
+Pets Allowed: {{form.if_pets}}<br><br>
+Refridgerator : {{form.fridge}}<br><br>
+Washer Dryer Unit: {{form.wash_dry_unit}}<br><br>
+A Studio: {{form.if_studio}}<br><br>
+</p>
+</div>
+</font>
+</b>
+</div>
+
+<div class = 'row'>
+<div class = 'text-center'>
+{{wtf.form_field(form.submit)}}<br><br><br>
+</div>
+</div>
+
+
+</div>
+</form>
+</div>
+</body>
+{% endblock %}
