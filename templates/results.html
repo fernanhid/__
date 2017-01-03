@@ -19,7 +19,7 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-{% block title %}House{% endblock %}
+{% block title %}Rent{% endblock %}
 
 {% block page_content %}
 
@@ -35,7 +35,7 @@
 
      <div class=".col-md-4" style="padding-top:130px;">
      <div class = 'text-center'>
-       <h1>Predicted Price: </h1>
+       <h1>Predicted Rent: </h1>
        <h2><i>$ {{prediction}}</i></h2><br>
        <font size="3"> <i>For a <u>{{sqft}}</u> sqft aparment in <u>{{town}}</u> with <br>
        <u>{{bedrooms}} bedroom(s)</u> and <u>{{bathrooms}} bathroom(s)</u>.</i></font>
@@ -115,4 +115,6 @@ A Studio: {{form.if_studio}}<br><br>
 </form>
 </div>
 </body>
+
+<a href="http://www.fernandodata.com">Created by Fernando </a><br><br>
 {% endblock %}
