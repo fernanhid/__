@@ -1,5 +1,5 @@
 import feedparser
-from flask import Flask, render_template 
+from flask import Flask, render_template
 from flask import request
 import pandas as pd
 import numpy as np
@@ -8,15 +8,16 @@ from flask_bootstrap import Bootstrap
 import json
 import requests
 from flask_googlemaps import GoogleMaps, Map
-from sqlalchemy import create_engine
-from flask_script import Manager
-
-
 from flask_moment import Moment
 from flask_wtf import Form
-from wtforms import StringField, SubmitField, BooleanField, PasswordField
-from wtforms import IntegerField, SelectField, FloatField
+from wtforms import StringField, SubmitField, BooleanField
+from wtforms import IntegerField, SelectField, FloatField, PasswordField
 from wtforms.validators import Required
+from flask_script import Manager
+import os
+import psycopg2
+import urlparse
+from sqlalchemy import create_engine
 
 
 
