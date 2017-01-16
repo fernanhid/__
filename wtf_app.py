@@ -115,7 +115,6 @@ GoogleMaps(app, key="AIzaSyCoSG2qHLz1r9Lqe2UydmKnhNQKkprfy1I")
 #GoogleMaps(app)
 
 
-reg_model = pickle.load(open('amenities_model.pkl', 'rb'))
 
 
 
@@ -164,6 +163,9 @@ def home():
 
 
 			if form.validate_on_submit():
+
+				reg_model = pickle.load(open('amenities_model.pkl', 'rb'))
+
 				sqft = form.sqft.data
 				bathrooms = form.bathrooms.data
 				bedrooms = form.bedrooms.data
@@ -250,6 +252,8 @@ def test():
 	form = TestNameForm()
 
 	if form.validate_on_submit():
+		reg_model = pickle.load(open('amenities_model.pkl', 'rb'))
+
 		sqft = form.sqft.data
 		bathrooms = form.bathrooms.data
 		bedrooms = form.bedrooms.data
