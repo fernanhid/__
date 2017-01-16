@@ -69,9 +69,9 @@ class NameForm(Form):
 	submit = SubmitField('Submit')
 
 class TestNameForm(Form):
-	address = StringField('Address', validators=[Required()])
+	address = StringField('Address', validators=[Required()], default='153 S Washington Ave')
 	town = SelectField('Town:', choices = town_names[:2])
-	sqft = FloatField('SQFT:', validators=[Required()])
+	sqft = FloatField('SQFT:', validators=[Required()], default=1000)
 	bathrooms = SelectField('# of Bathrooms', choices = bath_nums)
 	bedrooms = SelectField('# of Bedrooms', choices = bed_nums)
 	
