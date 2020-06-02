@@ -1,7 +1,7 @@
 click==6.6
 dominate==2.3.1
 feedparser==5.2.1
-Flask==0.12
+Flask==1.0
 Flask-Bootstrap==3.3.7.0
 Flask-GoogleMaps==0.2.4
 flask-heroku==0.1.9
