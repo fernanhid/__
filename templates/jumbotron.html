@@ -2,59 +2,112 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %}Rent{% endblock %}
-<head>
-
-</head>
 
 
 
 {% block page_content %}
-<div class = 'row'>
-<div class="jumbotron">
-
-<div class = 'row'>
-<div class = 'col-md-5'>
-<br><br><br>
-    <h1>Rent</h1>
-    <h2>The Rental Market Analysis App</h2>
-    <div class = 'text-center'>
-        <a class="btn btn-primary btn-lg" href="/test" role="button">Try Rent Lite</a>
-        </div>
-</div>
-<div class = 'col-md-7'>
-<img src="static/for_rent.jpg"  style="width:600px;height:310px;">
-</div>
 
 
+
+
+<!-- JUMBOTRON -->
+
+<div class="jumbotron text-center text-white  ">
+  <h1 class="display-4 ">A.I. Powered Market Analysis</h1>
+  <p class="lead"> Predict rental prices with a click of a button. </p>
+  <hr class="my-4">
+  <p class="lead">
+  	<a class="btn btn-primary btn-lg" href="mailto:fernancapac@gmail.com" role="button">Get Access</a>
+    <a class="btn btn-primary btn-lg" href="/test" role="button">Try Rent</a>
     
-</div>
-</div>
-</div>
-
-
-
-
-
-
+  </p>
 </div>
 
 
+<div class = 'container px-5'>
 
-<div class = 'row'>
-<div class = 'col-md-6' style="padding-left:80px;">
-<h3> About</h3><br>
-<font size = 3>
-The Rental Market Analysis App saves you time when you are deciding on how much to charge for your next apartment. It uses data from online rental websites along with machine learning methods to arrive at a comparable price to similar rental units. Rent now covers all of <b>North New Jersey</b>.
-<br><br><br>
-<div  style="padding-left:180px;">
-<a class="btn btn-primary btn-md" href="mailto:fernancapac@gmail.com" role="button">Get Full Access</a>
+	<div class='row'>
+
+
+
+		<div class='col-xl-6 col-lg-12 '>
+
+			<div class='about-content px-3 py-lg-4 py-sm-3 px-lg-2 mx-md-3'>
+
+			Rent performs market analysis in seconds with the help of machine learning technology. It recommends a suggested price using rent data from around your area. If you are renting a house or looking for one, Rent makes in easy to compare. <br>
+			Rent currently covers <b>North New Jersey</b>.
+
+			</div>
+
+			
+
+		</div>
+	 
+		<div class='col-xl-6 col-lg-12 px-5 pt-lg-4 pt-md-5'>
+			<form method="post" role="form">
+			 {{ signinform.hidden_tag() }}
+			 {{ wtf.form_errors(signinform, hiddens="only") }}
+
+			 <div class="form-group md-12">
+			 	{{ wtf.form_field(signinform.username)}}
+			 	{{ wtf.form_field(signinform.password)}}
+			 </div>
+
+			 <div  class = 'text-center'>
+			{{wtf.form_field(signinform.submit)}} 
+
+			</div>
+			</form>
+
+		</div>
+	</div>
 </div>
-</div>
+
+{%endblock%}
+
+<!-- LOGIN -->
+
+	<!-- <div class = 'row px-5'>
+
+
+		<div class='about-content px-5'>
+
+		The Rental Market Analysis App saves you time when you are deciding on how much to charge for your next apartment. It uses data from online rental websites along with machine learning methods to arrive at a comparable price to similar rental units. Rent now covers all of <b>North New Jersey</b>.
+		</div>
+
+		
+
+		</div>
+ -->
+<!-- 	<div class = 'row px-5 pt-5'>
+		<form method="post" role="form">
+		 {{ signinform.hidden_tag() }}
+		 {{ wtf.form_errors(signinform, hiddens="only") }}
+
+		 <div class="form-group col-12">
+		 	{{ wtf.form_field(signinform.username)}}
+		 	{{ wtf.form_field(signinform.password)}}
+		 </div>
+
+		 <div  class = 'text-center'>
+		{{wtf.form_field(signinform.submit)}} 
+
+		</div>
 
 
 
-<div class = 'col-md-6'>
-<!-- put something here! -->
+ -->
+
+
+
+
+
+
+
+
+<!-- 
+<div class = 'col-xs-12 col-md-6 '>
+
 <form method="post" role="form">
  {{ signinform.hidden_tag() }}
   {{ wtf.form_errors(signinform, hiddens="only") }}
@@ -64,7 +117,7 @@ The Rental Market Analysis App saves you time when you are deciding on how much 
 </div>
 <div class = 'col-md-7'>
 <div  class = 'text-center'>
-<h3> Log In</h3>
+<div class='page-title'> Log In</div>
 <font color = 'blue'>{{response}}</font>
 </div>
 <div> {{ wtf.form_field(signinform.username)}} </div>
@@ -91,18 +144,4 @@ The Rental Market Analysis App saves you time when you are deciding on how much 
 
 </form>
 </div>
-</div>
-
-
-
-<div class = 'row' style="padding-left:80px;" style="padding-top:30px;">
-<br><br>
-
-<a href="http://www.fernandodata.com">Created by Fernando H.</a><br><br>
-
-
-</div>
-
-
-
-{% endblock %}
+</div> -->

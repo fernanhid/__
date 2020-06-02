@@ -16,7 +16,7 @@ from wtforms.validators import Required
 from flask_script import Manager
 import os
 import psycopg2
-import urlparse
+import urllib.parse
 from sqlalchemy import create_engine
 
 
@@ -119,9 +119,10 @@ GoogleMaps(app, key="AIzaSyCoSG2qHLz1r9Lqe2UydmKnhNQKkprfy1I")
 
 
 
-#House map Stuff
-urlparse.uses_netloc.append("postgres")
-url = urlparse.urlparse(os.environ["DATABASE_URL"])
+
+House map Stuff
+urllib.parse.uses_netloc.append("postgres")
+url = urllib.parse.urlparse(os.environ["DATABASE_URL"])
 
 engine = psycopg2.connect(
     database=url.path[1:],
@@ -146,8 +147,19 @@ for crime in house_map_data:
     }
     house_locations.append(named_crime)
 
+
+
+
+
+### Passwords
 user_password_dict = {'fernando': '1fghfghfgh', 'richman': 'kentshire'}
 password_user_dict = {'1fghfghfgh': 'fernando' , 'kentshire': 'richman'}
+
+
+
+
+
+
 #Start of Templates                                     
 
 @app.route('/', methods = ['GET', 'POST'])
@@ -164,7 +176,7 @@ def home():
 
 			if form.validate_on_submit():
 
-				reg_model = pickle.load(open('amenities_model.pkl', 'rb'))
+				reg_model = pd.read_pickle('amenities_model.pkl')
 
 				sqft = form.sqft.data
 				bathrooms = form.bathrooms.data
@@ -210,7 +222,7 @@ def home():
 
 
 
-				prediction = round(np.exp(reg_model.predict(x.reshape(1, -1))[0]),2)
+				prediction = round(np.exp(reg_model.predict(x.values.reshape(1, -1))[0]),2)
 
 
 
@@ -252,7 +264,7 @@ def test():
 	form = TestNameForm()
 
 	if form.validate_on_submit():
-		reg_model = pickle.load(open('amenities_model.pkl', 'rb'))
+		reg_model = pd.read_pickle('amenities_model.pkl')
 
 		sqft = form.sqft.data
 		bathrooms = form.bathrooms.data
@@ -298,7 +310,7 @@ def test():
 
 
 
-		prediction = round(np.exp(reg_model.predict(x.reshape(1, -1))[0]),2)
+		prediction = round(np.exp(reg_model.predict(x.values.reshape(1, -1))[0]),2)
 
 
 
@@ -335,8 +347,9 @@ def get_values(query):
 def call_api(address, town):
 	api_address = address.replace(' ', '+')
 	api_town = '+' + town.replace(' ', '+')
+	key = 'AIzaSyD_-p5_2cUMt_wfpetjt0-OoVI42da6ASk'
 
-	api_url = 'https://maps.googleapis.com/maps/api/geocode/json?address=%s,%s,+NJ'%(api_address,api_town)
+	api_url = 'https://maps.googleapis.com/maps/api/geocode/json?address=%s,%s,+NJ&key=%s'%(api_address,api_town, key)
 
 	response = requests.get(api_url, verify = False).json()['results'][0]['geometry']['location']
 
