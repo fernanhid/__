@@ -16,7 +16,7 @@ from wtforms.validators import Required
 from flask_script import Manager
 import os
 import psycopg2
-import urllib.parse
+import urlparse
 from sqlalchemy import create_engine
 
 
@@ -121,7 +121,7 @@ GoogleMaps(app, key="AIzaSyCoSG2qHLz1r9Lqe2UydmKnhNQKkprfy1I")
 
 
 #House map Stuff
-urllib.parse.uses_netloc.append("postgres")
+urlparse.uses_netloc.append("postgres")
 url = urllib.parse.urlparse(os.environ["DATABASE_URL"])
 
 engine = psycopg2.connect(
