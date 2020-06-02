@@ -122,7 +122,7 @@ GoogleMaps(app, key="AIzaSyCoSG2qHLz1r9Lqe2UydmKnhNQKkprfy1I")
 
 #House map Stuff
 urlparse.uses_netloc.append("postgres")
-url = urlparse.parse.urlparse(os.environ["DATABASE_URL"])
+url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
 engine = psycopg2.connect(
     database=url.path[1:],
