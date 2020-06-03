@@ -258,7 +258,7 @@ def home():
 
 
 
-@app.route('/test', methods = ['GET', 'POST'])
+@app.route('/form', methods = ['GET', 'POST'])
 def test():
 	name = None
 	form = TestNameForm()
