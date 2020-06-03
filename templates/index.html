@@ -9,71 +9,71 @@
 <div class='container px-lg-5 px-md-1 py-lg-4' >
 
 
-<div  class = 'text-center  py-lg-3 px-lg-5 px-sm-3'>
-    <h1>Describe Your Apartment:</h1>
-</div>
-
-
-
-
-<form method="post" role="form", class = 'form', action = ''>
- {{ form.hidden_tag() }}
-  {{ wtf.form_errors(form, hiddens="only") }}
-
-	<div class = 'row'>
-		<div class="form-group col-md-12">
-		 {{ wtf.form_field(form.address)}}
-		 {{ wtf.form_field(form.town)}} 
-		 {{ wtf.form_field(form.sqft)}}
-		 {{ wtf.form_field(form.bedrooms)}} 
-		 {{ wtf.form_field(form.bathrooms)}}
-		 </div>
-	</div>
-
-
-	<div class = 'row pl-sm-5'>
-
-
-
-		<div class="form-group col-sm-4 col-lg-4"> 
-
-
-		Air Conditioner: {{form.ac}}<br><br> 
-		TV Cable: {{form.cable}}<br><br>
-		Deck: {{form.deck}}<br><br>
-		Dishwasher: {{form.dishw}}<br><br>
-		</div>
-
-
-		<div class="form-group col-sm-4 col-lg-4 "> 
-
-		Wifi Internet: {{form.wifi}}<br><br>
-		Laundry Facility: {{form.laundry_f}}<br><br>
-		Microwave: {{form.microw}}<br><br>
-		</div>
-
-
-		<div class="form-group col-sm-4 col-lg-4 "> 
-
-		Pets Allowed: {{form.if_pets}}<br><br>
-		Refrigerator : {{form.fridge}}<br><br>
-		Washer/Dryer: {{form.wash_dry_unit}}<br><br>
-		Studio: {{form.if_studio}}<br><br>
-		</div>
-
+	<div  class = 'text-center  py-lg-3 px-lg-5 px-sm-3'>
+	    <h1>Describe Your Apartment:</h1>
 	</div>
 
 
 
-		<div class = 'text-center'>
-			<button type="submit" class="btn btn-lg btn-primary">Submit</button>
+
+	<form method="post" role="form", class = 'form', action = ''>
+	 {{ form.hidden_tag() }}
+	  {{ wtf.form_errors(form, hiddens="only") }}
+
+		<div class = 'row'>
+			<div class="form-group col-md-12">
+			 {{ wtf.form_field(form.address)}}
+			 {{ wtf.form_field(form.town)}} 
+			 {{ wtf.form_field(form.sqft)}}
+			 {{ wtf.form_field(form.bedrooms)}} 
+			 {{ wtf.form_field(form.bathrooms)}}
+			 </div>
 		</div>
-	
-
-	
 
 
-</form>
+		<div class = 'row pl-sm-5'>
+
+
+
+			<div class="form-group col-sm-4 col-lg-4"> 
+
+
+			Air Conditioner: {{form.ac}}<br><br> 
+			TV Cable: {{form.cable}}<br><br>
+			Deck: {{form.deck}}<br><br>
+			Dishwasher: {{form.dishw}}<br><br>
+			</div>
+
+
+			<div class="form-group col-sm-4 col-lg-4 "> 
+
+			Wifi Internet: {{form.wifi}}<br><br>
+			Laundry Facility: {{form.laundry_f}}<br><br>
+			Microwave: {{form.microw}}<br><br>
+			</div>
+
+
+			<div class="form-group col-sm-4 col-lg-4 "> 
+
+			Pets Allowed: {{form.if_pets}}<br><br>
+			Refrigerator : {{form.fridge}}<br><br>
+			Washer/Dryer: {{form.wash_dry_unit}}<br><br>
+			Studio: {{form.if_studio}}<br><br>
+			</div>
+
+		</div>
+
+
+
+			<div class = 'text-center'>
+				<button type="submit" class="btn btn-lg btn-primary">Submit</button>
+			</div>
+		
+
+		
+
+
+	</form>
 </div>
 
 {% endblock %}
